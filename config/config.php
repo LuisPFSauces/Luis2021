@@ -8,12 +8,14 @@ require_once "model/DBPDO.php";
 $controladores = [
     "login" => "controller/cLogin.php",
     "inicio" => "controller/cInicio.php",
-    "registro" => "controller/cRegistro.php"
+    "registro" => "controller/cRegistro.php",
+    "editar" => "controller/cEditar.php"
 ];
 
 $vistas = [
     "layout" => "view/layout.php",
     "login" => "view/vLogin.php",
     "inicio" => "view/vInicio.php",
-    "registro" => "view/vRegistro.php"
+    "registro" => "view/vRegistro.php",
+    "editar" => "view/vEditar.php"
 ];

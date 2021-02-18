@@ -25,7 +25,7 @@ $aLang = [
         'password' => 'Password',
         'login' => 'Login',
         'signup' => 'Sign Up',
-
+        
         'title' => 'Program',
         'logoff' => 'Logoff',
         'welcome' => 'Welcome '.(isset($usuarioActual) ? $usuarioActual->getDescUsuario() : null),
