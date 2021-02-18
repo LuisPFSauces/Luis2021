@@ -11,6 +11,6 @@ if (isset($_REQUEST["aceptar"])){
 }
 
 $oUsuarioActual = $_SESSION['usuarioDAW204LoginLogoffMulticapaPOO'];
-
+$numConexiones = 
 $vistaEnCurso = $vistas["editar"];
 require_once $vistas["layout"];

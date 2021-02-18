@@ -17,4 +17,4 @@
         <?php echo ($ultimaConexion != null) ? "<p>" . $aLang[$_COOKIE['idioma']]['lastConnection'] . "</p>" : null; ?>
     </article>
 </main>
-</body>
+</body>12
