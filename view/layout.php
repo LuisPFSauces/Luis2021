@@ -15,7 +15,7 @@
         <footer class="fixed">
             <a href="https://daw204.ieslossauces.es/" target="_blank"> <img src="webroot/media/oneandone.png" alt="oneandone icon" width="40"></a>
             <address>  <a href="../../index.html">&copy; 2020-2021 Luis Puente Fernandez</a> </address>
-            <a href="http://gitHub.com/LuisPFSauces" target="_blank"><img class="github" width="40" src="webroot/media/github.png" ></a>
+            <a href="https://github.com/LuisPFdez/Luis2021" target="_blank"><img class="github" width="40" src="webroot/media/github.png" ></a>
         </footer>
     </body>
 </html>

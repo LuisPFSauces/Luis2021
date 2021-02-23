@@ -6,11 +6,12 @@ if (isset($_REQUEST['Cancelar'])) {
     exit;
 }
 
-if (isset($_REQUEST["aceptar"])){
+if (isset($_REQUEST["aceptar"])) {
     //algo
 }
 
 $oUsuarioActual = $_SESSION['usuarioDAW204LoginLogoffMulticapaPOO'];
-$numConexiones = 
+$oUsuario = UsuarioPDO::buscarPorCodigo($oUsuarioActual->getCodUsuario());
+$numConexiones = $oUsuario ->getFechaHoraUltimaConexion();
 $vistaEnCurso = $vistas["editar"];
 require_once $vistas["layout"];
