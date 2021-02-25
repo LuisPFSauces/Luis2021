@@ -3,8 +3,10 @@
     <div class="buttons-header-inicio">
         <?php echo ($imagenUsuario != null) ? '<img id="fotoPerfil" src = "data:image/png;base64,' . base64_encode($imagenUsuario) . '" alt="Foto de perfil"/>' : "<img id='fotoPerfil' src='webroot/media/imagen_perfil.png' alt='imagen_perfil' width='120' height='120' />" ; ?>
         <form name="logout" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <button class="departamentos" type="submit" name='departamentos'>MTODepartamento</button>
             <button class="editar" type="submit" name='editar'>Editar</button>
             <button class="logout" type="submit" name='cerrarSesion'><?php echo $aLang[$_COOKIE['idioma']]['logoff']; ?></button>
+            
         </form>
     </div>
 
@@ -18,4 +20,3 @@
         <?php echo ($ultimaConexion != null) ? "<p>" . $aLang[$_COOKIE['idioma']]['lastConnection'] . "</p>" : null; ?>
     </article>
 </main>
-</body>

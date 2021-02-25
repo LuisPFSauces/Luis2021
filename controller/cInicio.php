@@ -17,6 +17,12 @@ if (isset($_REQUEST['editar'])){
     exit;
 }
 
+if (isset($_REQUEST['departamentos'])){
+    $_SESSION['paginaEnCurso'] = $controladores['mto_departamentos']; // almacenamos en la variable de sesion 'pagina' la ruta del controlador del BorrarCuenta
+    header('Location: index.php');
+    exit;
+}
+
 $oUsuarioActual = $_SESSION['usuarioDAW204LoginLogoffMulticapaPOO'];
 
 $numConexiones = $oUsuarioActual->getNumConexiones(); 

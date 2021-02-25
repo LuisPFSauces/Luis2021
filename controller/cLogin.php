@@ -23,28 +23,15 @@ define("OBLIGATORIO", 1);
 
 $entradaOK = true;
 
-$aErrores = [
-    'CodUsuario' => null,
-    'Password' => null
-];
-
 
 if (isset($_REQUEST["IniciarSesion"])) { 
-    $aErrores['CodUsuario'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['CodUsuario'], 15, 3, OBLIGATORIO);
-
-    $aErrores['Password'] = validacionFormularios::validarPassword($_REQUEST['Password'], 8, 1, 1, OBLIGATORIO); 
 
     $oUsuario = UsuarioPDO::validarUsuario($_REQUEST['CodUsuario'], $_REQUEST['Password']);
-
-    if (!isset($oUsuario)) { // si es null 
-        $aErrores['CodUsuario'] = "El codigo de usuario no se encuentra en la base de datos";
-    }
-
-
-    if ($aErrores['CodUsuario'] != null || $aErrores['Password'] != null) { 
+    if (is_null($oUsuario)) { // si es null 
+        $aErrores= "El usuario no se encuentra en la base de datos";
         $entradaOK = false;
-        unset($_REQUEST);
     }
+
 } else {
     $entradaOK = false;
 }

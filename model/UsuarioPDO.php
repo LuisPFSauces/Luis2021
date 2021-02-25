@@ -4,7 +4,7 @@ class UsuarioPDO {
 
     public static function validarUsuario($codUsuario, $password) {
         $oUsuario = null;
-
+        
         $consulta = "Select * from T01_Usuario where T01_CodUsuario=? and T01_Password=?";
         $passwordEncriptado = hash("sha256", ($codUsuario . $password));
         $resultado = DBPDO::ejecutaConsulta($consulta, [$codUsuario, $passwordEncriptado]);
@@ -16,7 +16,6 @@ class UsuarioPDO {
             $consulta = "Update T01_Usuario set T01_NumConexiones = T01_NumConexiones+1, T01_FechaHoraUltimaConexion=? where T01_CodUsuario=?";
             $resultado = DBPDO::ejecutaConsulta($consulta, [time(), $codUsuario]);
         }
-
         return $oUsuario;
     }
 
@@ -51,7 +50,14 @@ class UsuarioPDO {
 
         return $oUsuario;
     }
+    
+    public static function bajaUsuario($codUsuario) {
+        $consulta = "Delete from T01_Usuario where T01_CodUsuario=? ";
+        $resultado = DBPDO::ejecutaConsulta($consulta, [$codUsuario]);
 
+        return $resultado;
+    }
+    
     public static function buscarPorCodigo($codUsuario) {
         $oUsuario = null;
         $consulta = "Select * from T01_Usuario where T01_CodUsuario=?";
@@ -63,5 +69,17 @@ class UsuarioPDO {
         return $oUsuario;
     }
     
+    public static function modificarUsuario($desUsuario, $codUsuario){
+        $consulta = "Update T01_Usuario set T01_DescUsuario=? where T01_CodUsuario=?";
+        $resultado = DBPDO::ejecutaConsulta($consulta, [$desUsuario, $codUsuario]);
+        return $resultado;
+    }
+    
+    public static function modificarPassword($codUsuario, $password) {
+        $passwordEncriptado = hash("sha256", ($codUsuario . $password));
+        $consulta = "Update T01_Usuario set T01_Password=? where T01_CodUsuario=?";
+        $resultado = DBPDO::ejecutaConsulta($consulta, [$passwordEncriptado, $codUsuario]);
+        return $resultado;
+    }
 
 }

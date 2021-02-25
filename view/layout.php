@@ -7,6 +7,30 @@
         <meta name="author"     content="Luis Puente Fernandez">
         <meta name="robots"     content="index, follow">
         <link rel="icon"        href="webroot/media/favicon.ico"    type="image/x-icon">
+        <style>
+            table{
+    margin: 30px 0;
+    width: 100%;
+    text-align: center;
+    border: 2px solid gray;
+    padding: 15px;
+}
+
+tr{
+    height: 75px;
+    line-height: 25px;
+}
+
+tbody tr:nth-of-type(odd){
+    background-color: #555555;
+    color: white;
+}
+
+tbody tr:nth-of-type(even){
+    background-color: #d4d1d1;
+    color: black;
+}
+        </style>
     </head>
     <body>
 
