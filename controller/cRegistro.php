@@ -21,7 +21,7 @@ $aErrores = [
 
 
 if (isset($_REQUEST["Registrarse"])) { 
-    $aErrores['CodUsuario'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['CodUsuario'], 15, 3, OBLIGATORIO); 
+    $aErrores['CodUsuario'] = validacionFormularios::comprobarAlfabetico($_REQUEST['CodUsuario'], 15, 3, OBLIGATORIO); 
 
     if($aErrores['CodUsuario']==null && UsuarioPDO::validarCodNoExiste($_REQUEST['CodUsuario'])==false){ 
         $aErrores['CodUsuario']="El nombre de usuario ya existe";

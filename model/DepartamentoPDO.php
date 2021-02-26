@@ -68,12 +68,23 @@ class DepartamentoPDO {
         $consulta = DBPDO::ejecutaConsulta($sql, [$codDepartamento, $descDepartamento, time(), $volumenDeNegocio]);
         return $consulta;
     }
-    
+
     public static function bajaDepartamento($codDepartamento) {
         $sql = "Delete from T02_Departamento where T02_CodDepartamento=?";
         $consulta = DBPDO::ejecutaConsulta($sql, [$codDepartamento]);
         return $consulta;
     }
 
+    public static function modificarFecha($codDepartamento, $fecha) {
+        if (!is_null($fecha)) {
+            $fechaBaja = (new DateTime($fecha))->getTimestamp();
+        } else {
+            $fechaBaja = $fecha;
+        }
+
+        $sentenciaSQL = "Update T02_Departamento set T02_FechaBajaDepartamento=? WHERE T02_CodDepartamento=?";
+        $consulta = DBPDO::ejecutaConsulta($sentenciaSQL, [$fechaBaja, $codDepartamento]);
+        return $consulta;
+    }
 
 }

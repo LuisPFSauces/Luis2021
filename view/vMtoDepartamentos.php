@@ -31,7 +31,6 @@
 
         <div class="opciones2">
             <input type="submit" value="Volver" name="volver">
-            <input type="submit" value="Mostrar Codigo" name="codigo">
         </div>
     </form>
     <div class="info">
