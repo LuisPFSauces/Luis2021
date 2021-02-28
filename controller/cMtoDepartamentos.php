@@ -1,5 +1,11 @@
 <?php
 
+if (isset($_REQUEST["volver"])) {
+    $_SESSION['paginaEnCurso'] = $controladores['inicio'];
+    header('Location: index.php');
+    exit;
+}
+
 function crearTablaDepartamentos($departamentos) {
     if (is_array($departamentos)) {
         $tabla = "
@@ -19,24 +25,18 @@ function crearTablaDepartamentos($departamentos) {
             is_null($departamento->__get("fechaBajaDepartamento")) ? $clase = "alta" : $clase = "baja";
             $tabla .= "<tr>\n\t<th class=\"$clase\">" . $departamento->__get("codDepartamento") . "</th>";
             $tabla .= "\t<td class=\"$clase\">" . $departamento->__get("descDepartamento") . "</td>";
-            $tabla .= "\t<td class=\"$clase\">" . $departamento->__get("fechaBajaDepartamento") . "</td>";
+            $tabla .= "\t<td class=\"$clase\">" . (is_null($departamento->__get("fechaBajaDepartamento")) ? null : date("Y-m-d", $departamento->__get("fechaBajaDepartamento"))) . "</td>";
             $tabla .= "\t<td class=\"$clase\">" . $departamento->__get("volumenDeNegocio") . "</td>";
             $tabla .= "<td><button type='submit' name='editar' value=\"" . $departamento->__get("codDepartamento") . "\">&#9999;&#65039;</button><button type='submit' name='baja' value=\"" . $departamento->__get("codDepartamento") . "\">&#128465;&#65039;</button><button type='submit' name='mostrar' value=\"" . $departamento->__get("codDepartamento") . "\">&#128270;</button>";
             if (is_null($departamento->__get("fechaBajaDepartamento"))) {
                 $tabla .= "<button type='submit' name='bajaLogica' value=\"" . $departamento->__get("codDepartamento") . "\">&#128234;</button></td>\n</tr>";
             } else {
-                $tabla .= "<button type='submit' name='rehabilitacion' value=\"" . $departamento->__get("codDepartamento") . "\">&#128235;</button></td>\n</tr>";
+                $tabla .= "<button type='submit' name='rehabilitar' value=\"" . $departamento->__get("codDepartamento") . "\">&#128235;</button></td>\n</tr>";
             }
         }
         $tabla .= "</tbody></table>";
         return $tabla;
     }
-}
-
-if (isset($_REQUEST["volver"])) {
-    $_SESSION['paginaEnCurso'] = $controladores['inicio'];
-    header('Location: index.php');
-    exit;
 }
 
 if (isset($_REQUEST["buscar"])) {
@@ -70,12 +70,23 @@ if (isset($_REQUEST["mostrar"])) {
 }
 if (isset($_REQUEST["bajaLogica"])) {
     $_SESSION["MTO_Departamentos_Codigo"] = $_REQUEST["bajaLogica"];
+    $_SESSION["paginaEnCurso"] = $controladores["mto_bajaLogica"];
+    header('Location: index.php');
+    exit;
 }
-if (isset($_REQUEST["rehabilitacion"])) {
-    $_SESSION["MTO_Departamentos_Codigo"] = $_REQUEST["rehabilitacion"];
+if (isset($_REQUEST["rehabilitar"])) {
+    $_SESSION["MTO_Departamentos_Codigo"] = $_REQUEST["rehabilitar"];
+    $_SESSION["paginaEnCurso"] = $controladores["mto_rehabilitar"];
+    header('Location: index.php');
+    exit;
+}
+if (isset($_REQUEST["exportar"])) {
+    $_SESSION["paginaEnCurso"] = $controladores["mto_exportar"];
+    header('Location: index.php');
+    exit;
 }
 
-if (!isset($departamentos)){
+if (!isset($departamentos)) {
     $departamentos = crearTablaDepartamentos(DepartamentoPDO::buscarDepartamento("", "todos"));
 }
 

@@ -20,6 +20,10 @@ $controladores = [
     "mto_alta" => "controller/cMtoAlta.php",
     "mto_baja" => "controller/cMtoBaja.php",
     "mto_mostrar" => "controller/cMtoMostrar.php",
+    "mto_bajaLogica" => "controller/cMtoBajaLogica.php",
+    "mto_rehabilitar" => "controller/cMtoRehabilitar.php",
+    "mto_exportar" => "controller/cMtoExportar.php"
+    
 ];
 
 $vistas = [
@@ -35,5 +39,7 @@ $vistas = [
     "mto_editar" => "view/vMtoEditar.php",
     "mto_alta" => "view/vMtoAlta.php",
     "mto_baja" => "view/vMtoBaja.php",
-    "mto_mostrar" => "view/vMtoMostrar.php"
+    "mto_mostrar" => "view/vMtoMostrar.php",
+    "mto_bajaLogica" => "view/vMtoBajaLogica.php",
+    "mto_rehabilitar" => "view/vMtoRehabilitar.php"
 ];

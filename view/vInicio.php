@@ -8,13 +8,11 @@
             <button class="bg-gray-700 text-white rounded-lg p-2" type="submit" name='cerrarSesion'><?php echo $aLang[$_COOKIE['idioma']]['logoff']; ?></button>
         </form>
     </div>
-
 </header>
 <main class="mt-8">
     <article>
         <h2 class="font-bold"><?php echo $aLang[$_COOKIE['idioma']]['welcome'] ?> </h2>
         <p><?php echo ($numConexiones > 1) ? $aLang[$_COOKIE['idioma']]['numConnections'] : $aLang[$_COOKIE['idioma']]['numConnectionsWelcome']; ?></p>
-        <p><?php echo "Ultima conexion:". $ultimaConexion ?></p>
-        <?php echo ($ultimaConexion != null) ? "<p>" . $aLang[$_COOKIE['idioma']]['lastConnection'] . "</p>" : null; ?>
+        <p><?php echo ($ultimaConexion != null) ? "<p>" . $aLang[$_COOKIE['idioma']]['lastConnection'] . "</p>" : null; ?></p>
     </article>
 </main>
