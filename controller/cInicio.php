@@ -27,8 +27,7 @@ $oUsuarioActual = $_SESSION['usuarioDAW204LoginLogoffMulticapaPOO'];
 
 $numConexiones = $oUsuarioActual->getNumConexiones(); 
 $descUsuario = $oUsuarioActual->getDescUsuario(); 
-$ultimaConexion = $oUsuarioActual->getFechaHoraUltimaConexion();
-$imagenUsuario = $oUsuarioActual->getImagenPerfil(); 
+$ultimaConexion = $oUsuarioActual->getFechaHoraUltimaConexion(); 
 
 $vistaEnCurso = $vistas['inicio']; 
 require_once $vistas['layout'];
