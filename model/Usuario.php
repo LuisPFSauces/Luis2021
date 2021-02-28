@@ -1,14 +1,47 @@
 <?php
 
+/**
+ * Class Usuario
+ *
+ * Que define la estructura de los usuarios
+ * 
+ * @author Cristina Nuñez y Javier Nieto
+ * @since 1.0
+ * @version 0.3
+ */
 class Usuario {
 
+    /**
+     * Codigo del usuario
+     * @var string 
+     */
     private $codUsuario;
+    /**
+     * Password del usuario
+     * @var string 
+     */
     private $password;
+    /**
+     * Descripcion del usuario
+     * @var string 
+     */
     private $descUsuario;
+    /**
+     * Numero de conexiones del usuario
+     * @var int 
+     */
     private $numConexiones;
+    /**
+     * Fecha de ultima conexion del usuario en timestamp
+     * @var int 
+     */
     private $fechaHoraUltimaConexion;
+    /**
+     * Tipo de perfil del usuario (usuario, administrador) 
+     * 
+     * @var string
+     */
     private $perfil;
-    private $imagenPerfil;
 
     function __construct($codUsuario, $password, $descUsuario, $numConexiones, $fechaHoraUltimaConexion, $perfil, $imagenPerfil) {
         $this->codUsuario = $codUsuario;
@@ -44,10 +77,6 @@ class Usuario {
         return $this->perfil;
     }
 
-    function getImagenPerfil() {
-        return $this->imagenPerfil;
-    }
-
     function setCodUsuario($codUsuario) {
         $this->codUsuario = $codUsuario;
     }
@@ -72,7 +101,4 @@ class Usuario {
         $this->perfil = $perfil;
     }
 
-    function setImagenPerfil($imagenPerfil) {
-        $this->imagenPerfil = $imagenPerfil;
-    }
 }
